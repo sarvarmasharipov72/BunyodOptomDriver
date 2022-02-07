@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00ECEBEB</color>
     <color name="span_blue">#0081FE</color>
+    <color name="colorPrimary">#0081FE</color>>
+    <color name="lightGrey">#CFCFCF</color>
 
 </resources>
