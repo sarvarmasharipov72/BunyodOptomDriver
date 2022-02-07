@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.buyurtma.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home"
+        />
+    <fragment
+        android:id="@+id/loginFragmentOne"
+        android:name="com.example.buyurtma.ui.login.LoginFragmentOne"
+        android:label="fragment_login_one"
+        tools:layout="@layout/fragment_login_one" >
+        <action
+            android:id="@+id/action_loginFragmentOne_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragmentOne_to_loginFragmentTwo"
+            app:destination="@id/loginFragmentTwo" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragmentTwo"
+        android:name="com.example.buyurtma.ui.login.LoginFragmentTwo"
+        android:label="fragment_login_two"
+        tools:layout="@layout/fragment_login_two" >
+        <action
+            android:id="@+id/action_loginFragmentTwo_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragmentTwo_to_loginFragmentOne"
+            app:destination="@id/loginFragmentOne" />
+        <argument
+            android:name="loginParse"
+            app:argType="com.example.buyurtma.ui.login.model.Login" />
+    </fragment>
+</navigation>

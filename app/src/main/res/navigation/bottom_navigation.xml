@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/homeSubFragment">
+
+    <fragment
+        android:id="@+id/homeSubFragment"
+        android:name="com.example.buyurtma.ui.home.home_sub.HomeSubFragment"
+        android:label="fragment_home_sub"
+        tools:layout="@layout/fragment_home_sub" >
+        <action
+            android:id="@+id/action_homeSubFragment_to_statistikaFragment"
+            app:destination="@id/statistikaFragment" />
+        <action
+            android:id="@+id/action_homeSubFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeSubFragment_to_buyurtmalarFragment"
+            app:destination="@id/buyurtmalarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.buyurtma.ui.home.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeSubFragment"
+            app:destination="@id/homeSubFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_statistikaFragment"
+            app:destination="@id/statistikaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statistikaFragment"
+        android:name="com.example.buyurtma.ui.home.statistika.StatistikaFragment"
+        android:label="fragment_statistika"
+        tools:layout="@layout/fragment_statistika" >
+        <action
+            android:id="@+id/action_statistikaFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_statistikaFragment_to_homeSubFragment"
+            app:destination="@id/homeSubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyurtmalarFragment"
+        android:name="com.example.buyurtma.ui.buyurtmalar.BuyurtmalarFragment"
+        android:label="fragment_buyurtmalar"
+        tools:layout="@layout/fragment_buyurtmalar" >
+        <action
+            android:id="@+id/action_buyurtmalarFragment_to_homeSubFragment"
+            app:destination="@id/homeSubFragment" />
+        <argument
+            android:name="order"
+            app:argType="com.example.buyurtma.ui.home.home_sub.model.Data" />
+    </fragment>
+</navigation>

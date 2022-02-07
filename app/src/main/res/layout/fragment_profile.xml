@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.profile.ProfileFragment">
+
+    <ImageButton
+        android:id="@+id/imageButtonProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_profile_header"
+        android:background="@color/white"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="24dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/imageButtonProfile"
+        app:layout_constraintBottom_toBottomOf="@id/imageButtonProfile"
+        app:layout_constraintStart_toEndOf="@id/imageButtonProfile"
+        android:layout_marginStart="12dp"
+        android:text="Profile"
+        style="@style/title_text"/>
+    <LinearLayout
+        android:id="@+id/profilCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageButtonProfile"
+        android:layout_marginHorizontal="24dp"
+        android:orientation="vertical"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/profile_card_background"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        >
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#004D98"
+            android:layout_marginBottom="5dp"
+            android:text="Farrux Bozorboyev"
+            android:fontFamily="@font/source_sans_pro_semi_bold"
+            />
+        <TextView
+            android:id="@+id/profilePhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#004D98"
+            android:textSize="20sp"
+            android:text="+998 (33) 513 60 53"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@id/profilCard"
+        android:layout_marginHorizontal="24dp"
+        app:cornerRadius="10dp"
+        android:backgroundTint="#FFDDDD"
+        android:text="Chiqish"
+        android:textColor="#C60000"
+        android:layout_marginTop="24dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
