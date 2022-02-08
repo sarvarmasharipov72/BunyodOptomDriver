@@ -1,10 +1,8 @@
 package com.example.buyurtma.ui.home.home_sub
 
-import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -17,8 +15,16 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
 
     class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val conatiner = itemView.findViewById<ConstraintLayout>(R.id.containerRecycler)
+        private val address = itemView.findViewById<TextView>(R.id.address)
+        private val descriptionText = itemView.findViewById<TextView>(R.id.descriptionText)
+        private val countBox = itemView.findViewById<TextView>(R.id.countBox)
+        private val price = itemView.findViewById<TextView>(R.id.price)
 
         fun bind(orders: Data) {
+            address.text = orders.order.address
+            descriptionText.text = orders.user
+            countBox.text = orders.order.count.toString()
+            price.text = "${orders.order.amount.toString()} so'm"
 
         }
 
