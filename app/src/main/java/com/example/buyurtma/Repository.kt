@@ -1,6 +1,8 @@
 package com.example.buyurtma
 
 import com.example.buyurtma.api.LoginRetrofit
+import com.example.buyurtma.ui.buyurtmalar.BuyurtmaModel
+import com.example.buyurtma.ui.home.HomeViewModel
 import com.example.buyurtma.ui.home.home_sub.model.Orders
 import com.example.buyurtma.ui.home.profile.model.Profile
 import com.example.buyurtma.ui.login.model.Login
@@ -29,6 +31,10 @@ class Repository() {
 
     suspend fun getOrder(token: String): Response<Orders> {
         return LoginRetrofit.getOrder.getOrder(token)
+    }
+
+    suspend fun getData(token: String, id: String): Response<BuyurtmaModel> {
+       return LoginRetrofit.getData.getData(token, id)
     }
 
 //    suspend fun saveToken(token: String) {

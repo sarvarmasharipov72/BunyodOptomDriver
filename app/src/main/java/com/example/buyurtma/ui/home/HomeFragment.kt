@@ -36,10 +36,6 @@ class HomeFragment : Fragment() {
         }
 
 
-        homeViewModel.itemData.observe(viewLifecycleOwner, {
-
-        })
-
 //        bottomNavigationView?.setupWithNavController(navController)
 
         return binding?.root

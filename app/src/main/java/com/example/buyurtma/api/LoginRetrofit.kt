@@ -5,7 +5,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object LoginRetrofit {
@@ -40,6 +39,10 @@ object LoginRetrofit {
     }
 
     val getOrder: LoginApi by lazy {
+        login.create(LoginApi::class.java)
+    }
+
+    val getData: LoginApi by lazy {
         login.create(LoginApi::class.java)
     }
 }

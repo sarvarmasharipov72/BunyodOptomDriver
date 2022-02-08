@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
             if (s != null && s != "") {
                 homeViewModel.setToken(s)
-                loginViewModel?.getOrder("Bearer $s")
+
             } else {
                 navHostFragment.navigate(R.id.loginFragmentOne)
             }
@@ -71,10 +71,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun saveToken(token: String?) {
-
+        getOrder(token ?: "token not found")
         dataStore.edit {
             it[dataStoreKey] = token ?: ""
 
         }
     }
+    private fun getOrder(token: String) {
+//        loginViewModel?.getOrder("Bearer $token")
+        }
 }

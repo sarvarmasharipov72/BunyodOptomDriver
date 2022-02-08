@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buyurtma.R
 import com.example.buyurtma.ui.home.home_sub.model.Data
+import java.lang.StringBuilder
 
 class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
@@ -24,8 +25,19 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
             address.text = orders.order.address
             descriptionText.text = orders.user
             countBox.text = orders.order.count.toString()
-            price.text = "${orders.order.amount.toString()} so'm"
+            price.text = "${priceChange(orders.order.amount.toString())} so'm"
 
+        }
+        private fun priceChange(n: String): String {
+            val s = StringBuilder()
+            var i = 0
+            while (i < n.length) {
+                if (i % 3 == 0)
+                    s.append(" ")
+                s.append(n[i])
+                i++
+            }
+            return s.toString()
         }
 
 
