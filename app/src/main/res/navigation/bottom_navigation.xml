@@ -51,7 +51,9 @@
         tools:layout="@layout/fragment_buyurtmalar" >
         <action
             android:id="@+id/action_buyurtmalarFragment_to_homeSubFragment"
-            app:destination="@id/homeSubFragment" />
+            app:destination="@id/homeSubFragment"
+            app:popUpTo="@id/homeSubFragment"
+            app:popUpToInclusive="true"/>
         <argument
             android:name="order"
             app:argType="com.example.buyurtma.ui.home.home_sub.model.Data" />
