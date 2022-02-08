@@ -1,10 +1,12 @@
 package com.example.buyurtma
 
 import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -19,9 +21,10 @@ import com.example.buyurtma.ui.login.ViewModel.LoginViewModel
 import com.example.buyurtma.ui.login.ViewModel.LoginViewModelFactory
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
     companion object {
         private val dataStoreKey = stringPreferencesKey(Constant.TOKEN_KEY)
         private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
@@ -33,8 +36,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory(Repository())).get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(
+            this,
+            LoginViewModelFactory(Repository())
+        ).get(LoginViewModel::class.java)
         val navHostFragment =
             (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).navController
         lifecycleScope.launch {
@@ -79,5 +84,5 @@ class MainActivity : AppCompatActivity() {
     }
     private fun getOrder(token: String) {
 //        loginViewModel?.getOrder("Bearer $token")
-        }
+    }
 }
