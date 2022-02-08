@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/item_background"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="10dp"
+    android:paddingVertical="15dp"
+    android:elevation="2dp">
 
     <!-- Body qismi  -->
+    <TextView
+        android:id="@+id/producteName"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginHorizontal="11dp"
+        android:textSize="18sp"
+        android:layout_marginStart="11sp"
+        android:maxLength="25"
+        android:textColor="#002C67"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        tools:text="@tools:sample/lorem/random"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/boxImage"
+
+        />
+    <ImageView
+        android:id="@+id/boxImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/producteName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_box"
+        android:layout_marginStart="11dp"
+        />
+    <TextView
+        android:id="@+id/countBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/boxImage"
+        app:layout_constraintTop_toTopOf="@id/boxImage"
+        app:layout_constraintBottom_toBottomOf="@id/boxImage"
+        android:layout_marginStart="7dp"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textSize="16sp"
+        android:textColor="#002C67"
+        tools:text="2 ta"/>
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/countBox"
+        app:layout_constraintBottom_toBottomOf="@id/countBox"
+        app:layout_constraintStart_toEndOf="@id/countBox"
+        android:layout_marginStart="15dp"
+        tools:text="200.000 so'm"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#002C67"
+        android:textSize="16sp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="25dp">
 
     <!--Header qismini -->
+    <TextView
+        android:id="@+id/textRaqam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_sans_pro_semi_bold"
+        android:text="Buyurtma Raqami: "
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/buyurtmaRaqami"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/textRaqam"
+        app:layout_constraintTop_toTopOf="@id/textRaqam"
+        tools:text="24" />
+
+    <TextView
+        android:id="@+id/textSoni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_sans_pro_semi_bold"
+        android:text="Mahsulot Soni"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textRaqam" />
+
+    <TextView
+        android:id="@+id/mahsulotSoni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/buyurtmaRaqami"
+        app:layout_constraintTop_toTopOf="@id/textSoni"
+        tools:text="12" />
+
+    <TextView
+        android:id="@+id/textSuma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_sans_pro_semi_bold"
+        android:text="Umumiy summa"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSoni" />
+
+    <TextView
+        android:id="@+id/umumiySumma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/mahsulotSoni"
+        app:layout_constraintTop_toTopOf="@id/textSuma"
+        tools:text="100 000 so'm" />
+
+    <TextView
+        android:id="@+id/textManzil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_sans_pro_semi_bold"
+        android:text="Manzil"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSuma" />
+
+    <TextView
+        android:id="@+id/manzil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/umumiySumma"
+        app:layout_constraintTop_toTopOf="@id/textManzil"
+        tools:text="Xorazm viloyati, Xonqa tumani, Qirq-yop qishlog'i" />
+
+    <TextView
+        android:id="@+id/textOluvchi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_sans_pro_semi_bold"
+        android:text="Oluvchi "
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/manzil" />
+
+    <TextView
+        android:id="@+id/oluvchi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/manzil"
+        app:layout_constraintTop_toTopOf="@id/textOluvchi"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Quryozov Bahodir" />
+    <TextView
+        android:id="@+id/textVaqt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/source_sans_pro_semi_bold"
+        android:text="Vaqti:"
+        android:textColor="#002C67"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/oluvchi"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/oluvchi"
+        app:layout_constraintTop_toTopOf="@id/textVaqt"
+        tools:text="10.12.2022"
+        android:textSize="20sp"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#B3002C67"/>
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/textVaqt"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="18:00"
+        android:textSize="20sp"
+        android:fontFamily="@font/source_sans_pro_extra_light"
+        android:textColor="#B3002C67"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
