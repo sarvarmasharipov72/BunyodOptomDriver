@@ -41,7 +41,9 @@ class HomeSubFragment : Fragment() {
         }
         recyclerView.adapter = adapter
 
-
+        homeViewModel.orders.observe(this, {
+            adapter.setDataAll(it.data)
+        })
 
         return view
     }

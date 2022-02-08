@@ -41,7 +41,7 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
 
         holder.bind(list[position])
         holder.conatiner.setOnClickListener {
-            click(list[0])
+            click(list[position])
         }
 
     }

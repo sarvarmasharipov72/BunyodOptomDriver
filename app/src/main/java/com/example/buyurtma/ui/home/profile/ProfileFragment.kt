@@ -3,11 +3,11 @@ package com.example.buyurtma.ui.home.profile
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -55,22 +55,19 @@ class ProfileFragment : Fragment() {
 
         val viewModelFactory = LoginViewModelFactory(Repository())
         loginViewModel =
-            ViewModelProvider(requireActivity(), viewModelFactory).get(LoginViewModel::class.java)
+            ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
 
 
 
         lifecycleScope.launch {
-            var s: Profile? = getToken()
-            if (s != null && s.data.name != "") {
-//                navHostFragment.navigate(R.id.homeFragment)
+            val s: Profile = getToken()
+            if (s.data.name != "") {
                 binding?.profileName?.text = s.data.name
                 binding?.profilePhoneNumber?.text = "+${s.data.phone}"
+            } else {
+                postProfileData(activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
             }
-            postProfileData(activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
         }
-
-        var token = homeViewModel.token.value.toString()
-        loginViewModel?.getOrder("Bearer ${token}")
         loginViewModel?.profileData?.observe(requireActivity(), {
             if (it.isSuccessful) {
                 binding?.profileName?.text = it.body()?.data?.name
@@ -84,21 +81,23 @@ class ProfileFragment : Fragment() {
         return binding?.root
     }
 
-    private suspend fun getToken(): Profile{
+    private suspend fun getToken(): Profile {
         val preferences = requireActivity().profileStore.data.first()
         return Profile(ProfileData(preferences[nameKey] ?: "", preferences[phoneKey] ?: ""))
     }
 
     private suspend fun saveProfile(name: String?, phone: String?) {
-        requireActivity().profileStore.edit {
+        requireContext().profileStore.edit {
             it[nameKey] = name ?: ""
             it[phoneKey] = phone ?: ""
         }
     }
 
     private fun postProfileData(connectivityManager: ConnectivityManager) {
-        if (connectivityManager.activeNetworkInfo?.isConnected == true) {
+        if (connectivityManager.activeNetworkInfo?.isConnected ?: false) {
             loginViewModel?.getProfile("Bearer ${homeViewModel.token.value.toString()}")
+        } else {
+            Toast.makeText(requireContext(), "Iltimos internetingizni qo'shing", Toast.LENGTH_LONG).show()
         }
     }
 

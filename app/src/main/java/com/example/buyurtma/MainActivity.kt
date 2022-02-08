@@ -10,10 +10,13 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import com.example.buyurtma.ui.home.HomeViewModel
+import com.example.buyurtma.ui.home.profile.model.Profile
 import com.example.buyurtma.ui.login.ViewModel.LoginViewModel
+import com.example.buyurtma.ui.login.ViewModel.LoginViewModelFactory
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -26,22 +29,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     val homeViewModel: HomeViewModel by viewModels()
-    val loginViewModel: LoginViewModel by viewModels()
+    private var loginViewModel: LoginViewModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        loginViewModel = ViewModelProvider(this, LoginViewModelFactory(Repository())).get(LoginViewModel::class.java)
         val navHostFragment =
             (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).navController
         lifecycleScope.launch {
             var s: String? = null
             if (homeViewModel.token.value == null) {
                 s = getToken()
-                Log.d("Token", s.toString())
             }
             if (s != null && s != "") {
-//                navHostFragment.navigate(R.id.homeFragment)
                 homeViewModel.setToken(s)
-
+                loginViewModel?.getOrder("Bearer $s")
             } else {
                 navHostFragment.navigate(R.id.loginFragmentOne)
             }
@@ -54,7 +57,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
+        loginViewModel?.orders?.observe(this, {
+            if (it.isSuccessful) {
+                homeViewModel.orders.value = it.body()
+            }
+        })
 
     }
 
