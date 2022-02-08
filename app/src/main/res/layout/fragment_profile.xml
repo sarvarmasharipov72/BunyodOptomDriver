@@ -68,7 +68,7 @@
             android:id="@+id/profilePhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#004D98"
+            android:textColor="#0081FE"
             android:textSize="20sp" />
 
     </LinearLayout>
