@@ -56,7 +56,8 @@
         android:layout_marginTop="12dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/line1"
-        tools:listitem="@layout/home_item" />
+        tools:listitem="@layout/home_item"
+        android:background="#F5F5F5"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
