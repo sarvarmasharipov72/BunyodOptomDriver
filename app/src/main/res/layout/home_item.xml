@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/ic_location"
-        app:layout_constraintBottom_toTopOf="@id/descriptionText"
+        app:layout_constraintBottom_toTopOf="@id/producteName"
         android:layout_marginStart="11dp"
         />
     <TextView
@@ -32,7 +32,7 @@
         tools:text="@tools:sample/lorem/random"/>
 
     <TextView
-        android:id="@+id/descriptionText"
+        android:id="@+id/producteName"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginHorizontal="11dp"
@@ -51,7 +51,7 @@
         android:id="@+id/boxImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/descriptionText"
+        app:layout_constraintTop_toBottomOf="@id/producteName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/ic_box"

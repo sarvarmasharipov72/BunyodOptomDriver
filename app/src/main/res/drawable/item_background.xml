@@ -15,13 +15,13 @@
 
         <path
             android:pathData="M0 0V105H375V0"
-            android:fillColor="#F5F5F5"
+            android:fillColor="#FFFFFF"
             />
 
         <path
             android:pathData="M16 0H359C367.837 0 375 7.16344 375 16V89C375 97.8366 367.837 105 359 105H16C7.16344 105 0 97.8366 0 89V16C0 7.16344 7.16344 0 16 0Z"
             android:strokeWidth="2"
-            android:strokeColor="#F2F2F2"
+            android:strokeColor="#FFFFFF"
             />
 
     </group>

@@ -16,7 +16,7 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
     class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val conatiner = itemView.findViewById<ConstraintLayout>(R.id.containerRecycler)
         private val address = itemView.findViewById<TextView>(R.id.address)
-        private val descriptionText = itemView.findViewById<TextView>(R.id.descriptionText)
+        private val descriptionText = itemView.findViewById<TextView>(R.id.producteName)
         private val countBox = itemView.findViewById<TextView>(R.id.countBox)
         private val price = itemView.findViewById<TextView>(R.id.price)
 
