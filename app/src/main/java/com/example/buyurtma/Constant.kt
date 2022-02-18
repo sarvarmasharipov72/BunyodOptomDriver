@@ -7,5 +7,6 @@ class Constant {
         const val TOKEN_KEY = "TokenKey"
         const val PROFILE_NAME_KEY = "profileName"
         const val PROFILE_PHONE_KEY = "profilePhone"
+        const val DATE_KEY = "date_key"
     }
 }
