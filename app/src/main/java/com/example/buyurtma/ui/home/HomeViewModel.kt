@@ -10,11 +10,17 @@ class HomeViewModel : ViewModel() {
 
     var token = MutableLiveData<String>()
 
+    var check = MutableLiveData<Int>()
+
     var itemData = MutableLiveData<Orders?>()
 
     var profileData = MutableLiveData<Profile>()
 
     var orders = MutableLiveData<Orders>()
+
+    fun setCheck(check: Int) {
+        this.check.value = check
+    }
 
     fun setProfileData(profile: Profile) {
         profileData.value = profile

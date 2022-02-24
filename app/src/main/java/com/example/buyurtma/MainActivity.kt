@@ -13,6 +13,8 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.buyurtma.ui.home.HomeViewModel
 import com.example.buyurtma.ui.login.ViewModel.LoginViewModel
@@ -52,9 +54,10 @@ class MainActivity : AppCompatActivity() {
             }
             if (s != null && s != "") {
                 homeViewModel.setToken(s)
+                homeViewModel.setCheck(1)
 
             } else {
-                navHostFragment.navigate(R.id.loginFragmentOne)
+                homeViewModel.setCheck(2)
             }
         }
         homeViewModel.token.observe(this, {
@@ -93,6 +96,6 @@ class MainActivity : AppCompatActivity() {
         return calendar - (day ?: calendar + 1)
     }
     private fun getOrder(token: String) {
-//        loginViewModel?.getOrder("Bearer $token")
+        loginViewModel?.getOrder("Bearer $token")
     }
 }

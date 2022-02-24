@@ -23,7 +23,7 @@ interface LoginApi {
     @GET("/api/user/me")
     suspend fun getProfile(@Header("Authorization") auth: String): Response<Profile>
 
-    @GET("/api/order-by/my")
+    @GET("/api/order-by/all")
     suspend fun getOrder(@Header("Authorization") auth: String): Response<Orders>
 
     @GET("/api/order/{id}")

@@ -25,21 +25,23 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.bind(inflater.inflate(R.layout.fragment_home, container, false))
+        binding =
+            FragmentHomeBinding.bind(inflater.inflate(R.layout.fragment_home, container, false))
         val bottomNavigationView = binding?.bottomNavigationView
 
-        val navHostFragment = childFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
+        val navHostFragment =
+            childFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         navHostFragment.navController
 
         if (bottomNavigationView != null) {
-            NavigationUI.setupWithNavController(bottomNavigationView,navHostFragment.navController)
+            NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.navController)
         }
-
 
 //        bottomNavigationView?.setupWithNavController(navController)
 
         return binding?.root
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

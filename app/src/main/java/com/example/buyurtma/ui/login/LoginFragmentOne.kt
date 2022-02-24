@@ -48,11 +48,6 @@ class LoginFragmentOne : Fragment() {
 
         initAlert()
 
-//        binding.phoneNumber.setOnTouchListener(View.OnTouchListener { v, event ->
-//            binding.phoneNumber.text = Editable.Factory.getInstance().newEditable("").insert(0,"+998")
-
-//            true
-//        })
         var backSpace: Boolean = false
         var i = 0
         binding.phoneNumber.addTextChangedListener {
@@ -185,5 +180,6 @@ class LoginFragmentOne : Fragment() {
         }
         return s.toString()
     }
+
 
 }
