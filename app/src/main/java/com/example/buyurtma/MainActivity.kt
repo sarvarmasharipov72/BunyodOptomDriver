@@ -1,10 +1,13 @@
 package com.example.buyurtma
 
 import android.content.Context
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -60,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 homeViewModel.setCheck(2)
             }
         }
+
         homeViewModel.token.observe(this, {
             if (it != null) {
                 lifecycleScope.launch {

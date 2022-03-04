@@ -45,6 +45,7 @@ class HomeSubFragment : Fragment() {
             adapter.setDataAll(it.data)
         })
 
+
         return view
     }
 
