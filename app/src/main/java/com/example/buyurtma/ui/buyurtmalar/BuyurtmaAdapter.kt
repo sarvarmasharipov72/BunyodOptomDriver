@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buyurtma.R
+import com.example.buyurtma.ui.buyurtmalar.model.Data
+import com.example.buyurtma.ui.buyurtmalar.model.Product
 import java.lang.StringBuilder
 
 class BuyurtmaAdapter : RecyclerView.Adapter<BuyurtmaAdapter.BuyurtmaHolder>() {
@@ -52,7 +54,7 @@ class BuyurtmaAdapter : RecyclerView.Adapter<BuyurtmaAdapter.BuyurtmaHolder>() {
         private val price = itemView.findViewById<TextView>(R.id.price)
 
         fun bind(product: Product) {
-            producteName.text = product.product.toString()
+            producteName.text = product.product.name
             countBox.text = "${product.count} ta"
             price.text = "${priceChange(product.amount.toString())} So'm"
         }

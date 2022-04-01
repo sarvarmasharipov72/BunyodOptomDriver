@@ -64,8 +64,6 @@ class ProfileFragment : Fragment() {
             if (s.data.name != "") {
                 binding?.profileName?.text = s.data.name
                 binding?.profilePhoneNumber?.text = "+${s.data.phone}"
-            } else {
-                postProfileData(activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
             }
         }
         loginViewModel?.profileData?.observe(requireActivity(), {
@@ -97,7 +95,8 @@ class ProfileFragment : Fragment() {
         if (connectivityManager.activeNetworkInfo?.isConnected ?: false) {
             loginViewModel?.getProfile("Bearer ${homeViewModel.token.value.toString()}")
         } else {
-            Toast.makeText(requireContext(), "Iltimos internetingizni qo'shing", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Iltimos internetingizni qo'shing", Toast.LENGTH_LONG)
+                .show()
         }
     }
 

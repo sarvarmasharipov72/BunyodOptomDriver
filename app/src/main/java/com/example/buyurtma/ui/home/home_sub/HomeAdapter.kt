@@ -58,7 +58,7 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
 
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount(): Int = list.size - 1
 
     fun setDataAll(list: List<Data>) {
         this.list = list

@@ -4,8 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.buyurtma.Repository
-import com.example.buyurtma.ui.buyurtmalar.BuyurtmaModel
-import com.example.buyurtma.ui.home.home_sub.model.Order
+import com.example.buyurtma.ui.buyurtmalar.model.BuyurtmaModel
 import com.example.buyurtma.ui.home.home_sub.model.Orders
 import com.example.buyurtma.ui.home.profile.model.Profile
 import com.example.buyurtma.ui.login.model.Model

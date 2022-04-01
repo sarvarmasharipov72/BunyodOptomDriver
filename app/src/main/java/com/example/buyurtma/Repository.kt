@@ -1,14 +1,15 @@
 package com.example.buyurtma
 
 import com.example.buyurtma.api.LoginRetrofit
-import com.example.buyurtma.ui.buyurtmalar.BuyurtmaModel
-import com.example.buyurtma.ui.home.HomeViewModel
+import com.example.buyurtma.ui.buyurtmalar.model.BuyurtmaModel
 import com.example.buyurtma.ui.home.home_sub.model.Orders
 import com.example.buyurtma.ui.home.profile.model.Profile
 import com.example.buyurtma.ui.login.model.Login
 import com.example.buyurtma.ui.login.model.Model
 import com.example.buyurtma.ui.login.model.Token
+import okhttp3.internal.EMPTY_RESPONSE
 import retrofit2.Response
+import java.net.SocketTimeoutException
 
 class Repository() {
 

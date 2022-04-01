@@ -1,4 +1,4 @@
-package com.example.buyurtma.ui.buyurtmalar
+package com.example.buyurtma.ui.buyurtmalar.model
 
 data class User(
     val __v: Int,

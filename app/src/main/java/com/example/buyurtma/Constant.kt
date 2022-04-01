@@ -8,5 +8,7 @@ class Constant {
         const val PROFILE_NAME_KEY = "profileName"
         const val PROFILE_PHONE_KEY = "profilePhone"
         const val DATE_KEY = "date_key"
+        const val WEB_SOCKET_URL = "http://cc.umdsoft.uz"
+        val TAG = "Coinbase"
     }
 }

@@ -18,7 +18,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buyurtma.MainActivity
+import androidx.lifecycle.ViewModelProvider
+import com.example.buyurtma.ui.login.ViewModel.LoginViewModelFactory
 import com.example.buyurtma.R
+import com.example.buyurtma.Repository
 import com.example.buyurtma.databinding.FragmentBuyurtmalarBinding
 import com.example.buyurtma.ui.home.HomeViewModel
 import com.example.buyurtma.ui.login.ViewModel.LoginViewModel
@@ -44,18 +47,22 @@ class BuyurtmalarFragment : Fragment() {
                 false
             )
         )
+        loginViewModel = ViewModelProvider(
+            this,
+            LoginViewModelFactory(Repository())
+        ).get(LoginViewModel::class.java)
 
         binding?.imageButtonBuyurtma?.setOnClickListener {
             findNavController().navigate(R.id.action_buyurtmalarFragment_to_homeSubFragment)
         }
         initRecyclerView()
-//        loginViewModel?.getData("Bearer ${homeViewModel.token.value.toString()}", navArgs.order._id)
-//
-//        loginViewModel?.order?.observe(this, {
-//            if (it.isSuccessful) {
-//                adapter?.setData(it.body()?.data!!)
-//            }
-//        })
+        loginViewModel?.getData("Bearer ${homeViewModel.token.value.toString()}", navArgs.order.order._id)
+
+        loginViewModel?.order?.observe(this, {
+            if (it.isSuccessful) {
+                adapter?.setData(it.body()?.data!!)
+            }
+        })
 
 
         binding?.btnCall?.setOnClickListener {
@@ -92,7 +99,7 @@ class BuyurtmalarFragment : Fragment() {
 
     private fun startCall() {
         val dailIntent = Intent(Intent.ACTION_CALL)
-        dailIntent.data = Uri.parse("tel:+998912771223")
+        dailIntent.data = Uri.parse("tel:+${loginViewModel?.order?.value?.body()?.data?.get(0)?.user?.phone}")
         startActivity(dailIntent)
     }
 

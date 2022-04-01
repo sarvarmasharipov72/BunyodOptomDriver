@@ -1,6 +1,6 @@
 package com.example.buyurtma.api
 
-import com.example.buyurtma.ui.buyurtmalar.BuyurtmaModel
+import com.example.buyurtma.ui.buyurtmalar.model.BuyurtmaModel
 import com.example.buyurtma.ui.home.home_sub.model.Orders
 import com.example.buyurtma.ui.home.profile.model.Profile
 import com.example.buyurtma.ui.login.model.Login
@@ -23,7 +23,7 @@ interface LoginApi {
     @GET("/api/user/me")
     suspend fun getProfile(@Header("Authorization") auth: String): Response<Profile>
 
-    @GET("/api/order-by")
+    @GET("/api/order-by/my")
     suspend fun getOrder(@Header("Authorization") auth: String): Response<Orders>
 
     @GET("/api/order/{id}")

@@ -84,6 +84,16 @@ dependencies {
     implementation  "com.google.protobuf:protobuf-javalite:3.10.0"
     //Chart PhilJay
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    //WebSocket
+    implementation "org.java-websocket:Java-WebSocket:1.5.1"
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+    //Moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
+    //Socket
+    implementation ('io.socket:socket.io-client:2.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

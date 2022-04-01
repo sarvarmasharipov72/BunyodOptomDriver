@@ -39,7 +39,6 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-
     <TextView
         android:id="@+id/jamiText"
         android:layout_width="match_parent"
@@ -47,6 +46,7 @@
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="42dp"
         android:background="@drawable/profile_card_background"
+        android:elevation="10dp"
         android:fontFamily="@font/source_sans_pro_extra_light"
         android:gravity="center_vertical"
         android:paddingStart="16dp"
@@ -59,10 +59,10 @@
         android:id="@+id/barChart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
         android:maxHeight="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/jamiText"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"/>
+        app:layout_constraintTop_toBottomOf="@id/jamiText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
