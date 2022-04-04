@@ -22,11 +22,16 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
         private val price = itemView.findViewById<TextView>(R.id.price)
 
         fun bind(orders: Data) {
-            address.text = orders.order.address
-            descriptionText.text = orders.user
-            countBox.text = orders.order.count.toString()
-            price.text = "${priceChange(orders.order.amount.toString())} so'm"
-
+            if (orders.order != null) {
+                if (orders.order.address.isNotEmpty()) {
+                    address.text = orders.order.address
+                }
+                price.text = "${priceChange(orders.order.amount.toString())} so'm"
+                countBox.text = orders.order.count.toString()
+            }
+            if (orders.user != null) {
+                descriptionText.text = orders.user
+            }
         }
         private fun priceChange(n: String): String {
             val s = StringBuilder()
@@ -63,15 +68,5 @@ class HomeAdapter(val click: (Data) -> Unit) : RecyclerView.Adapter<HomeAdapter.
     fun setDataAll(list: List<Data>) {
         this.list = list
         notifyItemInserted(0)
-    }
-
-    fun setDataIndex(list: List<Data>, index: Int) {
-        this.list = list
-        notifyItemInserted(index)
-    }
-
-    fun removeItem(list: List<Data>, index: Int) {
-        this.list = list
-        notifyItemRemoved(index)
     }
 }

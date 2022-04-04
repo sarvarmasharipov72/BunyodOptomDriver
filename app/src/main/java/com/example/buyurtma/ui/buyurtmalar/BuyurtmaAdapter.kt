@@ -28,11 +28,16 @@ class BuyurtmaAdapter : RecyclerView.Adapter<BuyurtmaAdapter.BuyurtmaHolder>() {
             buyurtmaRaqami.text = order.order.toString()
             mahsulotSoni.text = "${order.count} ta"
             umumiySumma.text = "${priceChange(order.amount.toString())} so'm"
-            manzil.text = "${order.address}"
-            oluvchi.text = order.user.name
-            date.text = order.createdAt.substring(0, 10)
-            time.text = order.createdAt.substring(11, 16)
-
+            if (order.address.isNotEmpty()) {
+                manzil.text = order.address
+            }
+            if (order.user.name.isNotEmpty()) {
+                oluvchi.text = order.user.name
+            }
+            if (order.createdAt.isNotEmpty()) {
+                date.text = order.createdAt.substring(0, 10)
+                time.text = order.createdAt.substring(11, 16)
+            }
         }
 
         private fun priceChange(n: String): String {
@@ -54,7 +59,9 @@ class BuyurtmaAdapter : RecyclerView.Adapter<BuyurtmaAdapter.BuyurtmaHolder>() {
         private val price = itemView.findViewById<TextView>(R.id.price)
 
         fun bind(product: Product) {
-            producteName.text = product.product.name
+            if (product.product.name.isNotEmpty()) {
+                producteName.text = product.product.name
+            }
             countBox.text = "${product.count} ta"
             price.text = "${priceChange(product.amount.toString())} So'm"
         }

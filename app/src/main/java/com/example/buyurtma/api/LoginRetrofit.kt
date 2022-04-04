@@ -45,4 +45,8 @@ object LoginRetrofit {
     val getData: LoginApi by lazy {
         login.create(LoginApi::class.java)
     }
+
+    val putStatus: LoginApi by lazy {
+        login.create(LoginApi::class.java)
+    }
 }

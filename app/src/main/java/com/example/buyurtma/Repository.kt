@@ -37,6 +37,9 @@ class Repository() {
     suspend fun getData(token: String, id: String): Response<BuyurtmaModel> {
        return LoginRetrofit.getData.getData(token, id)
     }
+    suspend fun putStatus(token: String, id: String, status: Int) {
+        LoginRetrofit.putStatus.putStatus(token, id, status)
+    }
 
 //    suspend fun saveToken(token: String) {
 //        dataStorProfile.saveToken(token)

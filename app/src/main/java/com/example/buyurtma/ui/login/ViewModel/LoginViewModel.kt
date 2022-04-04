@@ -50,4 +50,10 @@ class LoginViewModel(private val repository: Repository): ViewModel() {
             order.value = repository.getData(token, id)
         }
     }
+
+    fun putStatus(token: String, id: String, status: Int) {
+        viewModelScope.launch {
+            repository.putStatus(token, id, status)
+        }
+    }
 }

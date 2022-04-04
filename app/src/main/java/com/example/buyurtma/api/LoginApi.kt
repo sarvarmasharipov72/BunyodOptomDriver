@@ -28,4 +28,7 @@ interface LoginApi {
 
     @GET("/api/order/{id}")
     suspend fun getData(@Header("Authorization") auth: String, @Path("id") groupId: String): Response<BuyurtmaModel>
+
+    @PUT("/api/order/{id}")
+    suspend fun putStatus(@Header("Authorization") auth: String, @Path("id") orderId: String, @Body status: Int )
 }
